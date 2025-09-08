@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutlu Yıldönümümüz ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #1a1a1a, #3a3a3a);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-top: 60px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: red;
+      font-size: 24px;
+      animation: floatUp 8s linear infinite;
+    }
+    @keyframes floatUp {
+      0% {transform: translateY(0) rotate(0);}
+      100% {transform: translateY(-110vh) rotate(360deg);}
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 1.2em;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+  <!-- Arka plan müzik -->
+  <audio autoplay loop>
+    <source src="askimiz.mp3" type="audio/mpeg">
+    Tarayıcınız müziği desteklemiyor.
+  </audio>
+
+  <!-- Kalpler -->
+  <div class="hearts"></div>
+
+  <!-- Başlık -->
+  <header>
+    Mutlu Yıldönümümüz Canım ❤️
+  </header>
+
+  <!-- Fotoğraf Galerisi -->
+  <section>
+    <h2>Birlikte Geçirdiğimiz Güzel Anılar</h2>
+    <div class="gallery">
+      <img src="foto1.jpg" alt="Fotoğraf 1">
+      <img src="foto2.jpg" alt="Fotoğraf 2">
+      <img src="foto3.jpg" alt="Fotoğraf 3">
+    </div>
+  </section>
+
+  <!-- Mesaj -->
+  <footer>
+    Seninle geçen her günüm en güzel hediyem...  
+    Nice mutlu yıllarımıza sevgilim ❤️
+  </footer>
+
+  <script>
+    // Ekrana kalpler ekleyen script
+    const heartsContainer = document.querySelector('.hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 10000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
